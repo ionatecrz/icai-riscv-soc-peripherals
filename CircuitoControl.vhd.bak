@@ -1,0 +1,225 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+
+entity CircuitoControl is
+port(
+		clk,reset_n: in std_logic;
+		ir_out: in std_logic_vector(31 downto 0);
+		m_pc: out std_logic_vector(1 downto 0);
+		m_alu_a, m_alu_b: out std _logic_vector(1 downto 0);
+		alu op: out std_logic vector(3 downto 0);
+		wr_pc: out std_logic;
+		wr_pc_cond: out std _logic;
+		tipo_ inst: out std _logic_vector(2 downto 0); 
+		m_banco: out std _logic_vector(1 downto 0); 
+		en _banco: out std_logic;
+		tipo_acc: out std _logic_vector(1 downto 0);
+		l_u: out std_logic;
+		we_ram: out std_logic;
+		m_ram: out std_logic_vector(1 downto 0));
+end CircuitoControl;
+
+
+architecture behavioral of UnidadControl is
+	type t_estados is (Reset,Fetch,Decod,lui3,lwsw3,auipc3,Arit3,SalCond,lw4,sw4,Arit4,lw5);
+	signal estado_sig, estado_act: t_estados;
+	
+	signal op_code: std_logic_vector(6 downto 0);
+	
+begin
+
+op_code<=ir_out(6 downto 0);
+
+VarEstados: process(clk, reset_n)
+begin
+	if reset_n='0' then
+		estado_act<=Reset;
+	elsif clk'event and clk='1' then
+		estado_act<= estado_sig;
+	end if;
+end process VarEstados;
+
+
+
+TransicionEstados: process(estado_act,op_code)
+begin
+	estado_sig<=estado_act;
+case estado_act is
+
+when Reset=> 
+	  estado_sig<=Fetch;
+	  
+when Fetch=>	
+	  estado_sig<=Decod;
+	  
+when Decod=>
+
+	  if op_code = "1101111" then --JAL
+			 estado_sig <= jal;
+	  elsif op_code = "1100111" then --JALR
+			 estado_sig <= jalr;
+	  elsif op_code = "0110111" then --LUI
+			 estado_sig <= lui3;
+	  elsif op_code = "0000011" or  op_code = "0000011" then --LW or SW
+			 estado_sig <= lwsw3;
+     elsif op_code = "0110011" then --ARIT
+			 estado_sig <= Arit3;
+	  elsif op_code = "0010011" then --ARITINM
+			 estado_sig <= AritInm;
+     elsif op_code = "1100011" then --SALCOND
+			 estado_sig <= SalCond;
+end if;
+when jal	=>	
+	  estado_sig<=Fetch; 	
+when jalr =>	
+	  estado_sig<=Fetch; 	  	  
+when lui3 =>	
+	  estado_sig<=Fetch; 		   
+when lwsw3	=>	
+	  if ir_out(6 downto 0)= OP_LW then
+	  estado_sig<=lw4;
+	  elsif ir_out(6 downto 0)= OP_SW then
+	  estado_sig<=sw4;
+	  end if; 
+	  
+when lw4	=>	
+	  estado_sig<=lw5;
+	  
+when lw5	=>	
+	  estado_sig<=Fetch;
+	  
+when sw4	=>	
+	  estado_sig<=Fetch; 
+	  
+when auipc3	=>	
+	  estado_sig<=Arit4;
+	  
+when Arit3	=>	
+	  estado_sig<=Arit4; 
+	  
+when AritInm =>	
+	  estado_sig<=Arit4;
+	  
+when Arit4	=>	
+	  estado_sig<=Fetch; 
+	  
+when SalCond=>	
+	  estado_sig<=Fetch;
+ 	  
+when others => 
+     estado_sig<= Reset;
+	end case;
+	
+end process;
+
+
+Salidas: process(estado_act)
+begin
+
+wr_pc_cond<='0';
+m_pc<="00";
+wr_pc<='0';
+en_ir<='0';
+mask_b0<='0';
+m_shamt<='0';
+en_ir<='0';
+en_banco<='0';
+l_u<='0';
+we_ram<='0';
+m_ram<='0';
+m_pc<="00";
+m_banco<="00";
+m_alu_a<="00";
+m_alu_b<="00";
+tipo_acc<="00";
+tipo_inst<=(others => '0');
+alu_op<=(others => '0');
+
+
+	case estado_act is
+	when Reset=>
+		m_pc<="10";
+		wr_pc<='1';
+	when Fetch=>
+		m_alu_a<="01";
+		m_alu_b<="01";
+		alu_op <= "0000";
+		m_pc<="00";
+		wr_pc<='1';
+		en_ir<='1';
+	when Decod=>
+		tipo_inst<=TYPE_B;
+		m_alu_a<="10";
+		m_alu_b<="10";
+		alu_op <= "0000";
+	when jal=>
+		m_alu_a<="10";
+		m_alu_b<="10";
+		alu_op <= "0000";
+		tipo_inst<=TYPE_J;
+		m_banco <= "01";
+		en_banco <= '1';
+		wr_pc <= '1';
+		m_pc <= "00";
+	when jalr=>
+		m_alu_a<="00";
+		m_alu_b<="10";
+		alu_op <= "0000";
+		tipo_inst<=TYPE_I;
+		m_banco <= "01";
+		en_banco <= '1';
+		wr_pc <= '1';
+		mask_b0 <= '1';
+		m_pc <= "00";
+	when lui3=>
+		tipo_inst<=TYPE_U;
+		m_banco <= "01";
+		en_banco <= '1';
+	when lwsw3=>
+		m_alu_a<="00";
+		m_alu_b<="10";
+		alu_op <= "0000";
+		tipo_inst<=TYPE_I or TYPE_S;
+	when auipc3=>
+		m_alu_a<="10";
+		m_alu_b<="10";
+		alu_op <= "0000";
+		tipo_inst<=TYPE_U;
+	when Arit3=>
+		m_alu_a<="00";
+		m_alu_b<="00";
+		alu_op <= ir_out(30)&ir_out(14)&ir_out(13)&ir_out(12);
+	when AritInm=>
+		m_alu_a<="00";
+		m_alu_b<="10";
+		m_shamt <= '1';
+		alu_op <= ir_out(30)&ir_out(14)&ir_out(13)&ir_out(12);
+	when SalCond=>
+		wr_pc_cond<='1';
+		m_alu_a<="00";
+		m_alu_b<="00";
+		alu_op <= "0000";
+		alu_op <= "001-";
+		m_pc <= "01";
+	when Arit4=>
+		m_ram <= '0';
+		m_banco <= "00";
+		en_banco <= '1';
+	when lw4=>
+		tipo_acc <= ir_out(13)&ir_out(12);
+		l_u <= ir_out(14);
+	when sw4=>
+		tipo_acc <= ir_out(13)&ir_out(12);
+		we_ram <= '1';
+	when lw5=>
+		l_u <= ir_out(14);
+		m_banco <= "00";
+		en_banco <= '1';
+		m_ram <= '1';
+	when others =>
+		null;
+	end case;
+end process Salidas;
+end behavioral;

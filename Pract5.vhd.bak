@@ -1,0 +1,44 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity Pract5 is
+	port(
+		clk, reset_n: in std_logic);
+end Pract5;
+
+architecture structural of Pract5 is 
+
+signal dato_val,l_u,we_ram,re: std_logic;
+signal Addr,d_in,d_out: std_logic_vector(31 downto 0);
+signal tipo_acc: std_logic_vector(1 downto 0);
+
+begin
+
+RISCV: entity work.RISCV   
+port map(
+		l_u=>l_u,
+		we_ram=>we_ram,
+		re=>re,
+		dato_val=>dato_val,
+		Addr=>Addr,
+		tipo_acc=>tipo_acc,
+		d_in=>d_in,
+		d_out=>d_out,
+		clk=>clk,
+		reset_n=>reset_n);
+		
+		
+RAM: entity work.RAM   
+port map(
+		acc_type=>tipo_acc,
+		addr=>Addr,
+		clk=>clk,
+		l_u=>l_u,
+		we=>we_ram and Addr(31),
+		d_in=>d_in,
+		d_out=>d_out);
+		
+
+
+end structural;

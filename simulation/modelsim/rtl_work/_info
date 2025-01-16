@@ -1,0 +1,136 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\ionat\Documents\ICAI\2023-2024\2do Cuatri\Sistemas Digitales II\Lab\Practicas\Pract5\simulation\modelsim
+Ealu32
+Z1 w1713858476
+Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
+Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 dC:\Users\ionat\Documents\ICAI\2023-2024\2do Cuatri\Sistemas Digitales II\Lab\Practicas\Pract5\simulation\modelsim
+Z6 8C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ALU32.vhd
+Z7 FC:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ALU32.vhd
+l0
+L4
+VSo]^?Xif_5l57MU@SUgm52
+Z8 OV;C;10.1d;51
+31
+Z9 !s108 1737037161.587000
+Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ALU32.vhd|
+Z11 !s107 C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ALU32.vhd|
+Z12 o-93 -work work -O0
+Z13 tExplicit 1
+!s100 VaILk8W11[XSE4H=oL@oE1
+!i10b 1
+Abehavioral
+R2
+R3
+R4
+DEx4 work 5 alu32 0 22 So]^?Xif_5l57MU@SUgm52
+l22
+L16
+V@5E3aV2IK06^<_mogEiHR0
+R8
+31
+R9
+R10
+R11
+R12
+R13
+!s100 IV]nOm8OQhc>R<mbOIJC12
+!i10b 1
+Ebancoregistros
+Z14 w1710833226
+R2
+R3
+R4
+R5
+Z15 8C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/BancoRegistros.vhd
+Z16 FC:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/BancoRegistros.vhd
+l0
+L5
+VE2VAXEkh0k`[9S?CcmkJP2
+R8
+31
+Z17 !s108 1737037161.844000
+Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/BancoRegistros.vhd|
+Z19 !s107 C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/BancoRegistros.vhd|
+R12
+R13
+!s100 lnHDBN4Llf;XZfii?8[Vo3
+!i10b 1
+Abehavioural
+R2
+R3
+R4
+DEx4 work 14 bancoregistros 0 22 E2VAXEkh0k`[9S?CcmkJP2
+l17
+L14
+V7CNMaHABXFSU:8aS3BOom3
+R8
+31
+R17
+R18
+R19
+R12
+R13
+!s100 Fi`M:=^dPNaW80X5_Qb1D1
+!i10b 1
+Egeneradorinmediatos
+w1712042872
+R2
+R3
+R4
+R5
+8C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/GeneradorInmediatos.vhd
+FC:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/GeneradorInmediatos.vhd
+l0
+L5
+VF3IRXzmbdk^2FZc4=kUgU2
+!s100 1?J4>UWCbIVbe@ODc?99Y2
+R8
+31
+!i10b 1
+!s108 1737037161.982000
+!s90 -reportprogress|300|-93|-work|work|C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/GeneradorInmediatos.vhd|
+!s107 C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/GeneradorInmediatos.vhd|
+R12
+R13
+Erom
+Z20 w1710776540
+R2
+R3
+R4
+R5
+Z21 8C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ROM.vhd
+Z22 FC:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ROM.vhd
+l0
+L5
+VY>a[GHI;2X:lBJJoFT6=m2
+R8
+31
+Z23 !s108 1737037161.737000
+Z24 !s90 -reportprogress|300|-93|-work|work|C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ROM.vhd|
+Z25 !s107 C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ROM.vhd|
+R12
+R13
+!s100 F6i@AIKm`?P?An[65:kaT3
+!i10b 1
+Abehavioural
+R2
+R3
+R4
+DEx4 work 3 rom 0 22 Y>a[GHI;2X:lBJJoFT6=m2
+l30
+L12
+VP0K3YKcdzSEa=4ainAb[40
+R8
+31
+R23
+R24
+R25
+R12
+R13
+!s100 <g`[lJXVg6;HPKMG;7S281
+!i10b 1

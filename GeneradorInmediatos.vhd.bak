@@ -1,0 +1,38 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity GeneradorInmediatos is
+port(
+		inst: in std_logic_vector(31 downto 0);
+		tipo_inst: in std_logic_vector(2 downto 0);
+		mask_b0: in std_logic;
+		inm: out std_logic_vector(31 downto 0));
+end GeneradorInmediatos;
+
+subtype tipo_inst_t is std_logic_vector(2 downto 0);
+constant TYPE_I : tipo_inst_t := "000";
+constant TYPE_S : tipo_inst_t := "001";
+constant TYPE_B : tipo_inst_t := "010";
+constant TYPE_U : tipo_inst_t := "011";
+constant TYPE_J : tipo_inst_t := "100";
+
+signal signo: std_logic_vector(19 downto 0);
+signal zero: std_logic_vector(11 downto 0);
+
+architecture behavioral of GeneradorInmediatos is
+
+process
+
+signo<=(others=>inst(31));
+zero<=(others=>'0');
+
+with tipo_inst select
+inm<=signo & inst(31 downto 20) when TYPE_I,
+	  signo & inst(31 downto 25) & inst(11 downto 7) when TYPE_S,
+	  signo(19 downto 1) & inst(31)& inst(7)& inst(30 downto 25)& inst(11 downto 6) when TYPE_B,
+	  inst(31 downto 12) & zero when TYPE_U,
+	  signo & inst(31 downto 20) when TYPE_J,
+		when others;
+
+end behavioral;

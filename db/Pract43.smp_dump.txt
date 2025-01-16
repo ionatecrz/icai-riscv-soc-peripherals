@@ -1,0 +1,24 @@
+
+State Machine - |Pract5|PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act
+Name estado_act.Enable estado_act.Setup estado_act.Idle 
+estado_act.Idle 0 0 0 
+estado_act.Setup 0 1 1 
+estado_act.Enable 1 0 1 
+
+State Machine - |Pract5|RISCV:RISCV|CircuitoControl:UnidadControl|estado_act
+Name estado_act.jalr estado_act.jal estado_act.lw5 estado_act.sw4 estado_act.lw4 estado_act.SalCond estado_act.AritInm estado_act.Arit4 estado_act.Arit3 estado_act.auipc3 estado_act.lwsw3 estado_act.lui3 estado_act.Decod estado_act.Fetch estado_act.Reset 
+estado_act.Reset 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+estado_act.Fetch 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+estado_act.Decod 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+estado_act.lui3 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+estado_act.lwsw3 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+estado_act.auipc3 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+estado_act.Arit3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+estado_act.Arit4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+estado_act.AritInm 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+estado_act.SalCond 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+estado_act.lw4 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+estado_act.sw4 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+estado_act.lw5 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+estado_act.jal 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+estado_act.jalr 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 

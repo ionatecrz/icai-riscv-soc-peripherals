@@ -1,0 +1,806 @@
+Analysis & Synthesis report for Pract43
+Thu Jan 16 15:13:53 2025
+Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Pract5|PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act
+  9. State Machine - |Pract5|RISCV:RISCV|CircuitoControl:UnidadControl|estado_act
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: RISCV:RISCV
+ 15. Parameter Settings for User Entity Instance: RISCV:RISCV|ruta_datos:RUTA
+ 16. Parameter Settings for User Entity Instance: RISCV:RISCV|ruta_datos:RUTA|ALU32:ALU
+ 17. Parameter Settings for User Entity Instance: RAM:RAM
+ 18. Port Connectivity Checks: "periferico:PSP"
+ 19. Port Connectivity Checks: "periferico:PEP"
+ 20. Port Connectivity Checks: "PuenteAPB2:PuenteAPB2|Mux3:Mux3"
+ 21. Port Connectivity Checks: "PuenteAPB2:PuenteAPB2"
+ 22. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|ROM:ROM"
+ 23. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux2:Mux5"
+ 24. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux2:Mux2"
+ 25. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux3anadido:Mux3anadido"
+ 26. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|AluR:ALU_R"
+ 27. Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|PC:PC"
+ 28. Port Connectivity Checks: "RISCV:RISCV|CircuitoControl:UnidadControl"
+ 29. Elapsed Time Per Partition
+ 30. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2013 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++--------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                         ;
++------------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Thu Jan 16 15:13:53 2025           ;
+; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
+; Revision Name                      ; Pract43                                         ;
+; Top-level Entity Name              ; Pract5                                          ;
+; Family                             ; Cyclone II                                      ;
+; Total logic elements               ; 0                                               ;
+;     Total combinational functions  ; 0                                               ;
+;     Dedicated logic registers      ; 0                                               ;
+; Total registers                    ; 0                                               ;
+; Total pins                         ; 2                                               ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
++------------------------------------+-------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP2C20F484C7       ;                    ;
+; Top-level entity name                                                      ; Pract5             ; Pract43            ;
+; Family name                                                                ; Cyclone II         ; Cyclone IV GX      ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                  ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; Off                ; Off                ;
+; Report Parameter Settings                                                  ; On                 ; On                 ;
+; Report Source Assignments                                                  ; On                 ; On                 ;
+; Report Connectivity Checks                                                 ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                         ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                       ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
+; Synthesis Seed                                                             ; 1                  ; 1                  ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 8      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                 ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                          ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+; RISCV.vhd                        ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/RISCV.vhd               ;         ;
+; ALU32.vhd                        ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ALU32.vhd               ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ROM.vhd                 ;         ;
+; BancoRegistros.vhd               ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/BancoRegistros.vhd      ;         ;
+; GeneradorInmediatos.vhd          ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/GeneradorInmediatos.vhd ;         ;
+; PC.vhd                           ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/PC.vhd                  ;         ;
+; PC_IR.vhd                        ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/PC_IR.vhd               ;         ;
+; IR.vhd                           ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/IR.vhd                  ;         ;
+; AluR.vhd                         ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/AluR.vhd                ;         ;
+; Mux1.vhd                         ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/Mux1.vhd                ;         ;
+; Mux2.vhd                         ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/Mux2.vhd                ;         ;
+; Mux3.vhd                         ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/Mux3.vhd                ;         ;
+; CircuitoControl.vhd              ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/CircuitoControl.vhd     ;         ;
+; RAM.vhd                          ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/RAM.vhd                 ;         ;
+; ruta_datos.vhd                   ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/ruta_datos.vhd          ;         ;
+; Mux3anadido.vhd                  ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/Mux3anadido.vhd         ;         ;
+; Pract5.vhd                       ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/Pract5.vhd              ;         ;
+; PuenteAPB2.vhd                   ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/PuenteAPB2.vhd          ;         ;
+; UCPuenteAPB2.vhd                 ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/UCPuenteAPB2.vhd        ;         ;
+; decod.vhd                        ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/decod.vhd               ;         ;
+; periferico.vhd                   ; yes             ; User VHDL File  ; C:/Users/ionat/Documents/ICAI/2023-2024/2do Cuatri/Sistemas Digitales II/Lab/Practicas/Pract5/periferico.vhd          ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 2     ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
++---------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+; |Pract5                    ; 0 (0)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 2    ; 0            ; |Pract5             ; work         ;
++----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------+
+; State Machine - |Pract5|PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act ;
++-------------------+-------------------+------------------+-----------------------+
+; Name              ; estado_act.Enable ; estado_act.Setup ; estado_act.Idle       ;
++-------------------+-------------------+------------------+-----------------------+
+; estado_act.Idle   ; 0                 ; 0                ; 0                     ;
+; estado_act.Setup  ; 0                 ; 1                ; 1                     ;
+; estado_act.Enable ; 1                 ; 0                ; 1                     ;
++-------------------+-------------------+------------------+-----------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Pract5|RISCV:RISCV|CircuitoControl:UnidadControl|estado_act                                                                                                                                                                                                                               ;
++--------------------+-----------------+----------------+----------------+----------------+----------------+--------------------+--------------------+------------------+------------------+-------------------+------------------+-----------------+------------------+------------------+------------------+
+; Name               ; estado_act.jalr ; estado_act.jal ; estado_act.lw5 ; estado_act.sw4 ; estado_act.lw4 ; estado_act.SalCond ; estado_act.AritInm ; estado_act.Arit4 ; estado_act.Arit3 ; estado_act.auipc3 ; estado_act.lwsw3 ; estado_act.lui3 ; estado_act.Decod ; estado_act.Fetch ; estado_act.Reset ;
++--------------------+-----------------+----------------+----------------+----------------+----------------+--------------------+--------------------+------------------+------------------+-------------------+------------------+-----------------+------------------+------------------+------------------+
+; estado_act.Reset   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 0                ;
+; estado_act.Fetch   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 1                ; 1                ;
+; estado_act.Decod   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 1                ; 0                ; 1                ;
+; estado_act.lui3    ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 1               ; 0                ; 0                ; 1                ;
+; estado_act.lwsw3   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 1                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.auipc3  ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 1                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.Arit3   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 1                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.Arit4   ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 1                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.AritInm ; 0               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 1                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.SalCond ; 0               ; 0              ; 0              ; 0              ; 0              ; 1                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.lw4     ; 0               ; 0              ; 0              ; 0              ; 1              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.sw4     ; 0               ; 0              ; 0              ; 1              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.lw5     ; 0               ; 0              ; 1              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.jal     ; 0               ; 1              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
+; estado_act.jalr    ; 1               ; 0              ; 0              ; 0              ; 0              ; 0                  ; 0                  ; 0                ; 0                ; 0                 ; 0                ; 0               ; 0                ; 0                ; 1                ;
++--------------------+-----------------+----------------+----------------+----------------+----------------+--------------------+--------------------+------------------+------------------+-------------------+------------------+-----------------+------------------+------------------+------------------+
+
+
++----------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                       ;
++-----------------------------------------------------------------+----------------------------------------+
+; Register name                                                   ; Reason for Removal                     ;
++-----------------------------------------------------------------+----------------------------------------+
+; PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act.Idle   ; Lost fanout                            ;
+; PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act.Setup  ; Lost fanout                            ;
+; PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl|estado_act.Enable ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Reset      ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.lui3       ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Arit4      ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.SalCond    ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.sw4        ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.lw5        ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.jal        ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.jalr       ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.auipc3     ; Stuck at GND due to stuck port data_in ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Arit3      ; Stuck at GND due to stuck port data_in ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.AritInm    ; Stuck at GND due to stuck port data_in ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.lw4        ; Stuck at GND due to stuck port data_in ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Fetch      ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Decod      ; Lost fanout                            ;
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.lwsw3      ; Lost fanout                            ;
+; Total Number of Removed Registers = 18                          ;                                        ;
++-----------------------------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                           ;
++-------------------------------------------------------------+---------------------------+-------------------------------------------------------------+
+; Register name                                               ; Reason for Removal        ; Registers Removed due to This Register                      ;
++-------------------------------------------------------------+---------------------------+-------------------------------------------------------------+
+; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.auipc3 ; Stuck at GND              ; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.Decod, ;
+;                                                             ; due to stuck port data_in ; RISCV:RISCV|CircuitoControl:UnidadControl|estado_act.lwsw3  ;
++-------------------------------------------------------------+---------------------------+-------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 0     ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                             ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+; 3:1                ; 11 bits   ; 22 LEs        ; 22 LEs               ; 0 LEs                  ; No         ; |Pract5|RISCV:RISCV|CircuitoControl:UnidadControl|estado_sig ;
+; 9:1                ; 11 bits   ; 66 LEs        ; 66 LEs               ; 0 LEs                  ; No         ; |Pract5|RISCV:RISCV|CircuitoControl:UnidadControl|estado_sig ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------------------+
+
+
++----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RISCV:RISCV ;
++----------------+-------+---------------------------------+
+; Parameter Name ; Value ; Type                            ;
++----------------+-------+---------------------------------+
+; n              ; 32    ; Signed Integer                  ;
++----------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RISCV:RISCV|ruta_datos:RUTA ;
++----------------+-------+-------------------------------------------------+
+; Parameter Name ; Value ; Type                                            ;
++----------------+-------+-------------------------------------------------+
+; n              ; 32    ; Signed Integer                                  ;
++----------------+-------+-------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RISCV:RISCV|ruta_datos:RUTA|ALU32:ALU ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; g_n_bits1      ; 32    ; Signed Integer                                            ;
+; g_n_bits2      ; 5     ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: RAM:RAM ;
++----------------+-------+-----------------------------+
+; Parameter Name ; Value ; Type                        ;
++----------------+-------+-----------------------------+
+; g_ram_words    ; 128   ; Signed Integer              ;
++----------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "periferico:PSP"                                                                              ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; prdata[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "periferico:PEP"                                                                              ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port          ; Type   ; Severity ; Details                                                                             ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+; prdata[31..8] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++---------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------------------------------------+
+; Port Connectivity Checks: "PuenteAPB2:PuenteAPB2|Mux3:Mux3" ;
++--------------+-------+----------+---------------------------+
+; Port         ; Type  ; Severity ; Details                   ;
++--------------+-------+----------+---------------------------+
+; data0[31..8] ; Input ; Info     ; Stuck at GND              ;
+; data1[31..8] ; Input ; Info     ; Stuck at GND              ;
+; data2[31..8] ; Input ; Info     ; Stuck at GND              ;
+; data3[31..8] ; Input ; Info     ; Stuck at GND              ;
++--------------+-------+----------+---------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "PuenteAPB2:PuenteAPB2"                                                                     ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port        ; Type   ; Severity ; Details                                                                             ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+; paddr[3..2] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; psel2       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; psel3       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|ROM:ROM" ;
++-------+-------+----------+--------------------------------------+
+; Port  ; Type  ; Severity ; Details                              ;
++-------+-------+----------+--------------------------------------+
+; en_pc ; Input ; Info     ; Stuck at VCC                         ;
++-------+-------+----------+--------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux2:Mux5" ;
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; data1[31..3] ; Input ; Info     ; Stuck at GND                    ;
+; data1[1..0]  ; Input ; Info     ; Stuck at GND                    ;
+; data1[2]     ; Input ; Info     ; Stuck at VCC                    ;
++--------------+-------+----------+---------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux2:Mux2" ;
++-------+-------+----------+----------------------------------------+
+; Port  ; Type  ; Severity ; Details                                ;
++-------+-------+----------+----------------------------------------+
+; data2 ; Input ; Info     ; Stuck at GND                           ;
++-------+-------+----------+----------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|Mux3anadido:Mux3anadido"                                  ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; Port   ; Type   ; Severity ; Details                                                                             ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+; salida ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|AluR:ALU_R" ;
++------+-------+----------+------------------------------------------+
+; Port ; Type  ; Severity ; Details                                  ;
++------+-------+----------+------------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                             ;
++------+-------+----------+------------------------------------------+
+
+
++---------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|ruta_datos:RUTA|PC:PC" ;
++------+-------+----------+-------------------------------------+
+; Port ; Type  ; Severity ; Details                             ;
++------+-------+----------+-------------------------------------+
+; en   ; Input ; Info     ; Stuck at VCC                        ;
++------+-------+----------+-------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "RISCV:RISCV|CircuitoControl:UnidadControl"                                                ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; m_pc       ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_alu_a    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_alu_b    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; alu_op     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wr_pc      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; wr_pc_cond ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; tipo_inst  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_banco    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_shamt    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en_banco   ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; en_ir      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; mask_b0    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; m_ram      ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; re         ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II 64-Bit Analysis & Synthesis
+    Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
+    Info: Processing started: Thu Jan 16 15:13:50 2025
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Pract43 -c Pract43
+Warning (20028): Parallel compilation is not licensed and has been disabled
+Info (12021): Found 2 design units, including 1 entities, in source file riscv.vhd
+    Info (12022): Found design unit 1: RISCV-structural
+    Info (12023): Found entity 1: RISCV
+Info (12021): Found 2 design units, including 1 entities, in source file alu32.vhd
+    Info (12022): Found design unit 1: ALU32-behavioral
+    Info (12023): Found entity 1: ALU32
+Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
+    Info (12022): Found design unit 1: ROM-Behavioural
+    Info (12023): Found entity 1: ROM
+Info (12021): Found 2 design units, including 1 entities, in source file bancoregistros.vhd
+    Info (12022): Found design unit 1: BancoRegistros-behavioural
+    Info (12023): Found entity 1: BancoRegistros
+Info (12021): Found 2 design units, including 1 entities, in source file generadorinmediatos.vhd
+    Info (12022): Found design unit 1: GeneradorInmediatos-behavioral
+    Info (12023): Found entity 1: GeneradorInmediatos
+Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
+    Info (12022): Found design unit 1: PC-behavioral
+    Info (12023): Found entity 1: PC
+Info (12021): Found 2 design units, including 1 entities, in source file pc_ir.vhd
+    Info (12022): Found design unit 1: PC_IR-behavioral
+    Info (12023): Found entity 1: PC_IR
+Info (12021): Found 2 design units, including 1 entities, in source file ir.vhd
+    Info (12022): Found design unit 1: IR-behavioral
+    Info (12023): Found entity 1: IR
+Info (12021): Found 2 design units, including 1 entities, in source file alur.vhd
+    Info (12022): Found design unit 1: AluR-behavioral
+    Info (12023): Found entity 1: AluR
+Info (12021): Found 2 design units, including 1 entities, in source file mux1.vhd
+    Info (12022): Found design unit 1: Mux1-behavioral
+    Info (12023): Found entity 1: Mux1
+Info (12021): Found 2 design units, including 1 entities, in source file mux2.vhd
+    Info (12022): Found design unit 1: Mux2-behavioral
+    Info (12023): Found entity 1: Mux2
+Info (12021): Found 2 design units, including 1 entities, in source file mux3.vhd
+    Info (12022): Found design unit 1: Mux3-behavioral
+    Info (12023): Found entity 1: Mux3
+Info (12021): Found 2 design units, including 1 entities, in source file circuitocontrol.vhd
+    Info (12022): Found design unit 1: CircuitoControl-behavioral
+    Info (12023): Found entity 1: CircuitoControl
+Info (12021): Found 2 design units, including 1 entities, in source file ram.vhd
+    Info (12022): Found design unit 1: RAM-behavioural
+    Info (12023): Found entity 1: RAM
+Info (12021): Found 2 design units, including 1 entities, in source file ram_block.vhd
+    Info (12022): Found design unit 1: ram_block-SYN
+    Info (12023): Found entity 1: RAM_block
+Info (12021): Found 2 design units, including 1 entities, in source file tb_ram.vhd
+    Info (12022): Found design unit 1: tb_RAM-testbench
+    Info (12023): Found entity 1: tb_RAM
+Info (12021): Found 2 design units, including 1 entities, in source file ruta_datos.vhd
+    Info (12022): Found design unit 1: ruta_datos-structural
+    Info (12023): Found entity 1: ruta_datos
+Info (12021): Found 2 design units, including 1 entities, in source file mux3anadido.vhd
+    Info (12022): Found design unit 1: Mux3anadido-behavioral
+    Info (12023): Found entity 1: Mux3anadido
+Info (12021): Found 2 design units, including 1 entities, in source file pract5.vhd
+    Info (12022): Found design unit 1: Pract5-structural
+    Info (12023): Found entity 1: Pract5
+Info (12021): Found 2 design units, including 1 entities, in source file puenteapb2.vhd
+    Info (12022): Found design unit 1: PuenteAPB2-structural
+    Info (12023): Found entity 1: PuenteAPB2
+Info (12021): Found 2 design units, including 1 entities, in source file ucpuenteapb2.vhd
+    Info (12022): Found design unit 1: UCPuenteAPB2-behavioral
+    Info (12023): Found entity 1: UCPuenteAPB2
+Info (12021): Found 2 design units, including 1 entities, in source file decod.vhd
+    Info (12022): Found design unit 1: decod-behavioral
+    Info (12023): Found entity 1: decod
+Info (12021): Found 2 design units, including 1 entities, in source file periferico.vhd
+    Info (12022): Found design unit 1: periferico-behavioral
+    Info (12023): Found entity 1: periferico
+Info (12127): Elaborating entity "Pract5" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Pract5.vhd(15): object "PSEL2" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at Pract5.vhd(15): object "PSEL3" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at Pract5.vhd(17): used implicit default value for signal "PRDATA2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at Pract5.vhd(17): used implicit default value for signal "PRDATA3" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "RISCV" for hierarchy "RISCV:RISCV"
+Warning (10541): VHDL Signal Declaration warning at RISCV.vhd(9): used implicit default value for signal "re" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(19): object "en_ir" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at RISCV.vhd(20): used implicit default value for signal "ir_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(21): object "en_banco" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(22): object "alu_op" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(23): object "tipo_inst" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(24): object "m_pc" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(25): object "m_alu_a" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(26): object "m_alu_b" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(27): object "wr_pc" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(28): object "m_ram" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(29): object "m_banco" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at RISCV.vhd(30): object "wr_pc_cond" assigned a value but never read
+Info (12128): Elaborating entity "CircuitoControl" for hierarchy "RISCV:RISCV|CircuitoControl:UnidadControl"
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(161): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(199): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(204): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(211): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(212): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(215): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at CircuitoControl.vhd(218): signal "ir_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Info (12128): Elaborating entity "ruta_datos" for hierarchy "RISCV:RISCV|ruta_datos:RUTA"
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(10): used implicit default value for signal "Addr" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(11): used implicit default value for signal "d_out" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(21): used implicit default value for signal "en_ir" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(26): used implicit default value for signal "en_banco" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(32): used implicit default value for signal "shamt" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(33): used implicit default value for signal "alu_op" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(37): used implicit default value for signal "tipo_inst" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(38): used implicit default value for signal "mask_b0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(40): used implicit default value for signal "m_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(42): used implicit default value for signal "m_alu_a" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(43): used implicit default value for signal "m_alu_b" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(44): used implicit default value for signal "Dout" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(46): used implicit default value for signal "wr_pc" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(47): used implicit default value for signal "m_ram" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(48): used implicit default value for signal "m_banco" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(49): used implicit default value for signal "wr_pc_cond" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at ruta_datos.vhd(52): used implicit default value for signal "alur_in" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Info (12128): Elaborating entity "PC" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|PC:PC"
+Info (12128): Elaborating entity "IR" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|IR:IR"
+Info (12128): Elaborating entity "PC_IR" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|PC_IR:PC_IR_REG"
+Info (12128): Elaborating entity "AluR" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|AluR:ALU_R"
+Info (12128): Elaborating entity "BancoRegistros" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|BancoRegistros:BancoReg"
+Info (12128): Elaborating entity "ALU32" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|ALU32:ALU"
+Warning (10631): VHDL Process Statement warning at ALU32.vhd(27): inferring latch(es) for signal or variable "a_i", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU32.vhd(27): inferring latch(es) for signal or variable "b_i", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU32.vhd(27): inferring latch(es) for signal or variable "alu_out_i", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU32.vhd(27): inferring latch(es) for signal or variable "signo", which holds its previous value in one or more paths through the process
+Warning (10631): VHDL Process Statement warning at ALU32.vhd(27): inferring latch(es) for signal or variable "alu_out", which holds its previous value in one or more paths through the process
+Info (10041): Inferred latch for "alu_out[0]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[1]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[2]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[3]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[4]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[5]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[6]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[7]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[8]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[9]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[10]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[11]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[12]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[13]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[14]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[15]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[16]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[17]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[18]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[19]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[20]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[21]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[22]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[23]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[24]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[25]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[26]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[27]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[28]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[29]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[30]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out[31]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "signo" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[0]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[1]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[2]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[3]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[4]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[5]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[6]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[7]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[8]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[9]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[10]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[11]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[12]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[13]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[14]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[15]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[16]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[17]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[18]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[19]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[20]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[21]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[22]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[23]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[24]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[25]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[26]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[27]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[28]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[29]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[30]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[31]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "alu_out_i[32]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[0]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[1]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[2]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[3]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[4]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[5]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[6]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[7]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[8]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[9]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[10]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[11]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[12]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[13]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[14]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[15]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[16]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[17]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[18]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[19]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[20]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[21]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[22]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[23]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[24]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[25]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[26]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[27]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[28]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[29]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[30]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[31]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "b_i[32]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[0]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[1]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[2]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[3]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[4]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[5]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[6]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[7]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[8]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[9]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[10]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[11]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[12]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[13]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[14]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[15]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[16]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[17]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[18]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[19]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[20]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[21]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[22]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[23]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[24]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[25]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[26]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[27]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[28]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[29]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[30]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[31]" at ALU32.vhd(27)
+Info (10041): Inferred latch for "a_i[32]" at ALU32.vhd(27)
+Info (12128): Elaborating entity "GeneradorInmediatos" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|GeneradorInmediatos:GeneradorInmediatos"
+Warning (10540): VHDL Signal Declaration warning at GeneradorInmediatos.vhd(15): used explicit default value for signal "TYPE_I" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at GeneradorInmediatos.vhd(16): used explicit default value for signal "TYPE_S" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at GeneradorInmediatos.vhd(17): used explicit default value for signal "TYPE_B" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at GeneradorInmediatos.vhd(18): used explicit default value for signal "TYPE_U" because signal was never assigned a value
+Warning (10540): VHDL Signal Declaration warning at GeneradorInmediatos.vhd(19): used explicit default value for signal "TYPE_J" because signal was never assigned a value
+Info (12128): Elaborating entity "Mux3anadido" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|Mux3anadido:Mux3anadido"
+Info (12128): Elaborating entity "Mux2" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|Mux2:Mux2"
+Info (12128): Elaborating entity "Mux1" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|Mux1:Mux6"
+Info (12128): Elaborating entity "ROM" for hierarchy "RISCV:RISCV|ruta_datos:RUTA|ROM:ROM"
+Info (12128): Elaborating entity "PuenteAPB2" for hierarchy "PuenteAPB2:PuenteAPB2"
+Warning (10540): VHDL Signal Declaration warning at PuenteAPB2.vhd(22): used explicit default value for signal "zeros" because signal was never assigned a value
+Info (12128): Elaborating entity "decod" for hierarchy "PuenteAPB2:PuenteAPB2|decod:Decod"
+Info (12128): Elaborating entity "UCPuenteAPB2" for hierarchy "PuenteAPB2:PuenteAPB2|UCPuenteAPB2:UnidadCtrl"
+Info (12128): Elaborating entity "Mux3" for hierarchy "PuenteAPB2:PuenteAPB2|Mux3:Mux3"
+Info (12128): Elaborating entity "RAM" for hierarchy "RAM:RAM"
+Info (12128): Elaborating entity "periferico" for hierarchy "periferico:PEP"
+Info (17049): 14 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 2 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk"
+    Warning (15610): No output dependent on input pin "reset_n"
+Info (21057): Implemented 2 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 2 input pins
+    Info (21059): Implemented 0 output pins
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 56 warnings
+    Info: Peak virtual memory: 4641 megabytes
+    Info: Processing ended: Thu Jan 16 15:13:53 2025
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:01
+
+
